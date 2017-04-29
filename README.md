@@ -1,1 +1,2 @@
-Project to use AJAX to pull data exposed by GIPHY API!
+# TriviaGame
+A Trivia game using Bootstrap/Javascript and Jquery with some interesting plugins!

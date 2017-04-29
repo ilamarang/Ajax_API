@@ -1,0 +1,51 @@
+.img-responsive{
+    cursor: pointer;
+    float:left;
+    
+    height:12em;
+    
+}
+body {
+
+	color: teal;
+	
+
+	font-family: cursive;
+}
+h1 {
+	color: teal;
+}
+
+span {
+	margin-left: 3em;
+}
+
+label {
+
+	font-size: 1.5em;
+}
+.questionAnswer .img-responsive{
+	display:block; 
+	width: 100%;
+	height:15em;}
+#quizTopics 	.img-responsive{
+	display:block; 
+	width: 100%;
+	height:15em;}
+
+	.panel {
+		
+		color: teal;
+		font-family: 'chalkduster', fantasy, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	}
+
+
+.correctAnswerDiv {
+	color: blue;
+}
+.item {
+	width: 33%;
+	float:left;
+	border:1px solid black;
+	border-spacing: 1em
+}
