@@ -149,3 +149,35 @@ $(document).ready(function() {
     playMusic.play();
     renderButtons();
 });
+
+//Function to automatically modify the background skin
+
+    $(function() {
+        var body = $("body");
+        var backgrounds = [
+            'url(./assets/images/Banner.jpg)',
+            'url(./assets/images/GOT1.jpg)',
+            'url(./assets/images/GOT2.png)',
+            
+            'url(./assets/images/GOT3.jpg)',
+
+            'url(./assets/images/GOT4.jpg)',
+            'url(./assets/images/GOT5.jpg)',
+            'url(./assets/images/GOT6.jpg)',
+            'url(./assets/images/GOT7.jpg)',
+           
+
+        ];
+
+        var current = 0;
+
+        function nextBackground() {
+            body.css(
+                'background',
+                backgrounds[current = ++current % backgrounds.length]);
+
+            setTimeout(nextBackground, 5000);
+        }
+        setTimeout(nextBackground, 5000);
+        body.css('background', backgrounds[0]);
+    });
