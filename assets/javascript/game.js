@@ -1,5 +1,5 @@
 //Initial array to hold the characters
-var characters = ["Cartman", "Doctor House", "Kevin Spacey", "Tyrion Lannister"];
+var characters = ["Arya Stark", "Cersei Lanniester", "Khal Drogo", "Tyrion Lannister"];
 
 //Function to render buttons on the screen. Panel will be cleared every time a button is added.
 function renderButtons() {
@@ -21,12 +21,21 @@ $("#addMovie").on("click",function(event) {
         // This line grabs the input from the textbox
         var character = $("#topic").val().trim();
 
-        // The movie from the textbox is then added to our array
+        $.ajax({
+      url: "https://api.got.show/api/characters/" + character,
+        dataType: 'json',
+        error: function (err) {
+            console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
+        },
+        success: function(response){
+        console.log(response);    
+        // Push only if the caracter name is valid
         characters.push(character);
 
         // Calling renderButtons which handles the processing of our movie array
-        renderButtons();
+        renderButtons(); } });
 
+        $(".topic").val("");
       });
 function displayGiphyInfo() {
         $("#giphyPanel").empty();
@@ -85,6 +94,40 @@ function startStopAnimation() {
 $("#buttonPanel").on("click", ".btn", displayGiphyInfo);
 
 $("#giphyPanel").on("click", ".img-responsive", startStopAnimation);
+
+//Plugin function(s) to provide typewritter effect on the screen.
+document.addEventListener('DOMContentLoaded', function() {
+
+    Typed.new("#typed", {
+        stringsElement: document.getElementById('typed-strings'),
+        typeSpeed: 30,
+        backDelay: 500,
+        loop: false,
+        contentType: 'html', // or text
+        // defaults to null for infinite loop
+        loopCount: null,
+        callback: function() {
+            foo();
+        },
+        resetCallback: function() {
+            newTyped();
+        }
+    });
+
+    var resetElement = document.querySelector('.reset');
+    if (resetElement) {
+        resetElement.addEventListener('click', function() {
+            document.getElementById('typed')._typed.reset();
+        });
+    }
+
+});
+
+function newTyped() { /* A new typed object */ }
+
+function foo() {
+    console.log("Callback");
+}
 
 
 $(document).ready(function() {

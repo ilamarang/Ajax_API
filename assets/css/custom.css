@@ -3,11 +3,14 @@
     float:left;
     
     height:12em;
+    width: 100%;
     
 }
 body {
 
-	color: teal;
+	color: white;
+		
+	background-image: url("../images/banner.jpg");
 	
 
 	font-family: cursive;
@@ -16,9 +19,7 @@ h1 {
 	color: teal;
 }
 
-span {
-	margin-left: 3em;
-}
+
 
 label {
 
@@ -48,4 +49,65 @@ label {
 	float:left;
 	border:1px solid black;
 	border-spacing: 1em
+}
+  .btn {
+	background-color: black;
+}
+.type-wrap {
+
+	font-size: 3em
+}
+/* code for animated blinking cursor */
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        @-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+
+        .typed-fade-out{
+            opacity: 0;
+            animation: 0;
+            transition: opacity .25s;
+        }
+
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
