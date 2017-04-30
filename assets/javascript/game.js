@@ -1,5 +1,8 @@
 //Initial array to hold the characters
 var characters = ["Arya Stark", "Cersei Lanniester", "Khal Drogo", "Tyrion Lannister"];
+var tickSymbol = "&#x2714 - Good One!" ;
+var crossSymbol = "&#x2717 - Not a GOT character!";
+var playMusic = new Audio("./assets/music/GameofThronesTheme.mp3");
 
 //Function to render buttons on the screen. Panel will be cleared every time a button is added.
 function renderButtons() {
@@ -20,22 +23,29 @@ $("#addMovie").on("click",function(event) {
 
         // This line grabs the input from the textbox
         var character = $("#topic").val().trim();
-
-        $.ajax({
+        if (character != "")
+        {
+                    $.ajax({
       url: "https://api.got.show/api/characters/" + character,
         dataType: 'json',
         error: function (err) {
             console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
+            $("#symbol").html(crossSymbol);
+            
+
         },
         success: function(response){
         console.log(response);    
         // Push only if the caracter name is valid
         characters.push(character);
-
+        debugger;
+        $("#symbol").html(tickSymbol);
         // Calling renderButtons which handles the processing of our movie array
         renderButtons(); } });
 
-        $(".topic").val("");
+        $("#topic").val("");
+        }
+
       });
 function displayGiphyInfo() {
         $("#giphyPanel").empty();
@@ -129,8 +139,13 @@ function foo() {
     console.log("Callback");
 }
 
+ playMusic.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
 
 $(document).ready(function() {
-
+     playMusic.load();
+    playMusic.play();
     renderButtons();
 });
