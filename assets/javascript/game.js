@@ -176,7 +176,7 @@ $("#topic").focus(function() {
 $(function() {
     var body = $("body");
     var backgrounds = [
-        'url(./assets/images/Banner.jpg)',
+        'url(./assets/images/banner.jpg)',
         'url(./assets/images/GOT1.jpg)',
         'url(./assets/images/GOT2.png)',
 
